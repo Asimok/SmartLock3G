@@ -1,0 +1,204 @@
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.example.SmartLock3G.MainActivity">
+ <LinearLayout
+     android:orientation="vertical"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvBandBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_5"
+            android:text="已绑定蓝牙设备："
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/EDIP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="IP地址" />
+
+        <EditText
+            android:id="@+id/EDPORT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="端口" />
+
+        <EditText
+            android:id="@+id/ed_send_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="10dp"
+            android:hint="写下发送的内容" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/bt_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="5dp"
+
+                android:text="设备认证" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="start"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="5dp"
+                android:onClick="gettrack"
+                android:text="轨迹" />
+
+            <Button
+                android:id="@+id/mStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:text="连接" />
+        </RelativeLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/bluetoothOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="bluetoothOpen"
+                android:text="蓝牙开锁" />
+            <Button
+                android:id="@+id/bluetoothClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="bluetoothClose"
+                android:text="蓝牙关锁" />
++
+            <Button
+                android:id="@+id/alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="alarm"
+                android:text="异常报警" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sendgps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="sendGPS"
+                android:text="自动发送坐标 关" />
+            <Button
+                android:id="@+id/autoOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="autoBluetoothOpen"
+                android:text="蓝牙自动开锁 关" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/WriteValues"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+
+            android:gravity="left|center"
+            android:maxLength="255"
+            android:hint="Hex Input"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/open_device"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="open" />
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Clear" />
+            <Button
+                android:id="@+id/WriteButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Write"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="接收的内容："
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="10dp"
+            android:background="#009688"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+            />
+    </LinearLayout>
+
+ </LinearLayout>
+
+</ScrollView>
